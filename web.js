@@ -4,7 +4,7 @@
 var express = require('express');
 
 var app = module.exports = express.createServer(),
-	db = new require(__dirname + '/lib/db.js')('data/');
+	db = new require(__dirname + '/lib/db.mongodb.js')(process.env.UTROPY_MONGODB_URI);
 
 // Configuration
 
@@ -42,6 +42,9 @@ app.get('/', function(req, res) {
 			res.render('error', {
 				error : err
 			});
+		}
+		else if (data == null) {
+			res.send(404);
 		}
 		else {
 			res.render('entry', {

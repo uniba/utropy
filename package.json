@@ -8,6 +8,7 @@
     , "stylus": "0.x"
     , "nib": "0.1.x"
     , "stylus": "0.x"
-    , "mongoose": "1.x"
+    , "mongoose": "1.7.x"
+    , "underscore": "1.x"
   }
 }

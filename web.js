@@ -30,7 +30,7 @@ app.configure('production', function() {
 
 app.dynamicHelpers({
 	title : function(req, res) {
-		return 'ntropy';
+		return 'utropy';
 	}
 })
 

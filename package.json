@@ -3,7 +3,11 @@
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
-      "express": "2.4.3"
-    , "jade": ">= 0.0.1"
+      "express": "2.4.x"
+    , "jade": "0.x"
+    , "stylus": "0.x"
+    , "nib": "0.1.x"
+    , "stylus": "0.x"
+    , "mongoose": "1.x"
   }
 }

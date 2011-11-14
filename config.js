@@ -13,6 +13,10 @@ exports.all = function(app) {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.bodyParser());
+    app.use(function(req, res, next) {
+      req.body._method = req.body._method || req.query._method || req.method;
+      next();
+    });
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     // app.use(express.session({ secret: 'your secret here' }));

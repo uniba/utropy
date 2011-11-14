@@ -1,0 +1,15 @@
+form.form-stacked(action='/admin/entries/' + entry.id, method='post')
+  input(type='hidden', id='_method', name='_method', value='put')
+  fieldset
+    legend add
+    .clearfix
+      label(for='entry[title]') Title
+      .input
+        input.xlarge(id='entry[title]', name='entry[title]', size='30', type='text', value=entry.title)
+    .clearfix
+      label(for='entry[body]') Body
+      .input
+        textarea(id='entry[body]', name='entry[body]', size='50', rows='20')
+          #{entry.body}
+  .actions
+    button.btn.primary(type='submit') Update

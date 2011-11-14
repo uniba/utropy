@@ -34,7 +34,7 @@ exports.create = function(req, res) {
 
 /*
 exports.show = function(req, res) {
-  res.send('show ' + req.params.entrie);
+  res.send('show ' + req.params.id);
 };
 */
 
@@ -46,7 +46,8 @@ exports.edit = function(req, res) {
       res.render('error', { error: err });
     } else {
       res.render('admin/edit', {
-        layout: 'layouts/admin'
+          layout: 'layouts/admin'
+        , entry: doc
       });
     }
   });

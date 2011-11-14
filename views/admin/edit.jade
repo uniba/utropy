@@ -9,7 +9,7 @@ form.form-stacked(action='/admin/entries/' + entry.id, method='post')
     .clearfix
       label(for='entry[body]') Body
       .input
-        textarea(id='entry[body]', name='entry[body]', size='50', rows='20')
+        textarea.span10(id='entry[body]', name='entry[body]', rows='20')
           #{entry.body}
   .actions
     button.btn.primary(type='submit') Update

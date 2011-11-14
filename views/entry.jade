@@ -1,6 +1,8 @@
-p
-  a(href='/') reload
+.entry
+  h1.title #{data.title}
+  div.body !{data.body}
+  p.number #{data.num}/#{total}
 
-h1 #{data.title}
-p !{data.body}
-p #{current}/#{total}
+- if (reload)
+  p.reload
+    a(href='/') ↺

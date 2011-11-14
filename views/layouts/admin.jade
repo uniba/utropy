@@ -1,0 +1,28 @@
+!!! 5
+html
+  head
+    meta(charset='UTF-8')
+    title= title
+    link(rel='stylesheet', href='http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/admin.css')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js')
+    script(src='//ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.js')
+  body
+    .container
+      .content
+        .page-header
+          h1 μtropy 
+            small ― Tropy for uniba.jp
+        .row
+          .span4
+            h3 admin
+            p Hello. This is administration console.
+            h4 menu
+            ul
+              li
+                a(href='/admin/entries/new') New
+          .span12
+            h3 Entries
+            div!= body
+      footer
+        p &copy; 2011 μtropy.

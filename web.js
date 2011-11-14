@@ -1,82 +1,44 @@
 /**
  * Module dependencies.
  */
-var express = require('express');
+var express = require('express')
+  , Resource = require('express-resource')
+  , namespace = require('express-namespace');
 
-var app = module.exports = express.createServer(),
-	db = new require(__dirname + '/lib/db.mongodb.js')(process.env.UTROPY_MONGODB_URI);
+var config = require(__dirname + '/config')
+  , routes = require(__dirname + '/routes')
+  , env = process.env
+  , app = module.exports = express.createServer();
 
-// Configuration
+/**
+ * Configuration
+ */
+app.configure(config.all(app));
+app.configure('development', config.development(app));
+app.configure('production', config.production(app));
 
-app.configure(function() {
-	app.set('views', __dirname + '/views');
-	app.set('view engine', 'jade');
-	app.use(express.bodyParser());
-	app.use(express.methodOverride());
-	app.use(app.router);
-	app.use(express.static(__dirname + '/public'));
+app.helpers({ title: 'μtropy' });
+
+/**
+ * Routes
+ */
+app.get('/', routes.random);
+app.get('/random.:format?', routes.random);
+app.get('/entry/:id.:format?', routes.entry);
+
+app.namespace('/admin', function() {
+  app.all('*', express.basicAuth(env.UTROPY_ADMIN_USER || 'admin', env.UTROPY_ADMIN_PASS || 'pass'));
+  app.get('/', routes.admin.index);
+  app.get('entries/page/:page', routes.admin.index);
+  app.resource('entries', routes.admin);
 });
 
-app.configure('development', function() {
-	app.use(express.errorHandler({
-		dumpExceptions : true,
-		showStack : true
-	}));
+app.routes.all().forEach(function(route) {
+  console.log('  \033[90m%s \033[36m%s\033[0m', route.method.toUpperCase(), route.path);
 });
 
-app.configure('production', function() {
-	app.use(express.errorHandler());
-});
-
-app.dynamicHelpers({
-	title : function(req, res) {
-		return 'utropy';
-	}
-})
-
-// Routes
-
-app.get('/', function(req, res) {
-	var data = db.random(function(err, data, index, length) {
-		if (err) {
-			res.render('error', {
-				error : err
-			});
-		}
-		else if (data == null) {
-			res.send(404);
-		}
-		else {
-			res.render('entry', {
-				current: index + 1,
-				total: length,
-				data : data
-			});
-		}
-	});
-});
-
-app.get('/add', function(req, res) {
-	res.render('add', {
-		
-	});
-});
-
-app.post('/add', function(req, res) {
-	console.log(req.body);
-	db.add(req.body, function(err, id) {
-		console.log(arguments);
-		res.redirect('/');
-	})
-});
-
-app.get('/update/:id', function(req, res) {
-	
-})
-
-app.post('/update/:id', function(req, res) {
-	
-});
-
+/**
+ * Boot
+ */
 app.listen(process.env.PORT || 3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

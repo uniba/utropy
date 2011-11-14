@@ -1,3 +1,5 @@
+@import 'node_modules/nib/lib/nib/index.styl'
+
 // .entry
 
 // .body
@@ -25,9 +27,12 @@
   top: 0
   right: 0
   padding: 5px
-  background-color: #888
+  // background-color: #888
   font-size: large
+  transition: all 0.5s ease-in-out
+  &:hover
+    transform: rotate(-360deg)
   & a:link
   & a:visited
     text-decoration: none
-    color: #eee
+    color: #888

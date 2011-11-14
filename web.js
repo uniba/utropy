@@ -22,8 +22,8 @@ app.helpers({ title: 'μtropy' });
 /**
  * Routes
  */
-app.get('/', routes.random);
-app.get('/random.:format?', routes.random);
+app.get('/', routes.index);
+app.get('/random.:format?', routes.entry);
 app.get('/entry/:id.:format?', routes.entry);
 
 app.namespace('/admin', function() {

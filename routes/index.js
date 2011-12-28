@@ -22,10 +22,10 @@ exports.entry = function(req, res) {
     }
     
     params = {
-        layout: 'layouts/layout'
-      , total: length
-      , data: data
-      , reload: !id
+      layout: 'layouts/layout'
+    , total: length
+    , data: data
+    , reload: !id
     };
     
     if (format === 'json') {

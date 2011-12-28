@@ -1,5 +1,5 @@
 var env = process.env
-  , db = new require('../lib/db.mongodb.js')(env.UTROPY_MONGODB_URI);
+  , db = new require('../lib/db.mongodb.js')(env.MONGOLAB_URI);
 
 exports.index = function(req, res) {
   res.render('index', {

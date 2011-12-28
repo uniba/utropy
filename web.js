@@ -5,17 +5,17 @@ var express = require('express')
   , Resource = require('express-resource')
   , namespace = require('express-namespace');
 
-var config = require(__dirname + '/config')
+var app = module.exports = express.createServer()
+  , config = require(__dirname + '/config')(app)
   , routes = require(__dirname + '/routes')
-  , env = process.env
-  , app = module.exports = express.createServer();
+  , env = process.env;
 
 /**
  * Configuration
  */
-app.configure(config.all(app));
-app.configure('development', config.development(app));
-app.configure('production', config.production(app));
+app.configure(config.all);
+app.configure('development', config.development);
+app.configure('production', config.production);
 
 app.helpers({ title: 'μtropy' });
 

@@ -1,5 +1,5 @@
 jQuery(function($) {
-  $('.danger').live(function(e) {
+  $('.danger').live('click', function(e) {
     return confirm('really?');
   });
 });

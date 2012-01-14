@@ -5,8 +5,8 @@ Designed to deployed to [Heroku](http://www.heroku.com/).
 
 ## Authors
 
-  - Seiya Konno <seiya@uniba.jp> ([nulltask](https://github.com/nulltask))
-  - Noriyuki Shimizu <noriyuki@uniba.jp> ([norhythm](https://github.com/norhythm))
+  - Seiya Konno &lt;seiya@uniba.jp&gt; ([nulltask](https://github.com/nulltask))
+  - Noriyuki Shimizu &lt;noriyuki@uniba.jp&gt; ([norhythm](https://github.com/norhythm))
 
 ## Requirement
 
@@ -16,35 +16,35 @@ Designed to deployed to [Heroku](http://www.heroku.com/).
 
 ## Installation
 
-### Install MongoDB 
+#### Install MongoDB 
 
 
     $ brew install mongodb
     $ mongod run --config /path/to/mongod.conf
 
-### Install Node v0.4.7 (using nave)
+#### Install Node v0.4.7 (using nave)
 
     $ nave install 0.4.7
     $ nave use 0.4.7
     $ curl http://npmjs.org/install.sh | sh
 
-### Grab code and resolving module dependencies.
+#### Grab code and resolving module dependencies.
 
     $ git clone git@github.com:uniba/utropy.git
     $ cd utropy
     $ npm install
 
-### Run
+#### Run
     
     $ MONGOLAB_URI=mongodb://localhost/utropy node web
 
 ## Deployment
 
-### At first:
+#### At first:
 
     $ git remote add heroku git@heroku.com:utropy.git
 
-### Deploy to Heroku:
+#### Deploy to Heroku:
 
     $ git push heroku master
 

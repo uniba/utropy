@@ -11,5 +11,6 @@ form.form-stacked(action='/admin/entries/' + entry.id, method='post')
       .input
         textarea.span10(id='entry[body]', name='entry[body]', rows='20')
           #{entry.body}
+      span.help-block Note: タグが使えます
   .actions
     button.btn.primary(type='submit') Update

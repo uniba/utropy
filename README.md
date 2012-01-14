@@ -14,6 +14,13 @@ Requirement
 Installation
 ----
 
+Install MongoDB 
+
+```
+$ brew install mongodb
+$ mongod run --config /path/to/mongod.conf
+```
+
 Install Node v0.4.7 (using nave)
 
 ```
@@ -33,7 +40,7 @@ $ npm install
 Run
 
 ```
-$ node web
+$ MONGOLAB_URI=mongodb://localhost/utropy node web
 ```
 
 Deployment

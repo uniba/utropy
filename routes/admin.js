@@ -1,4 +1,4 @@
-var db = new require('../lib/db.mongodb.js')(process.env.UTROPY_MONGODB_URI);
+var db = new require('../lib/db.mongodb.js')(process.env.MONGOLAB_URI);
 
 exports.index = function(req, res) {
   var page = req.params.page || 1;

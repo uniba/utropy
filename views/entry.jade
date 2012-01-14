@@ -1,8 +1,11 @@
 .entry
-  h1.title #{data.title}
   div.body !{data.body}
-  p.number #{data.num}/#{total}
 
-- if (reload)
-  p.reload
-    a(href='/', target='_parent') ↺
+footer.clearfix
+  h1.title #{data.title}
+    span.number #{data.num} / #{total}
+
+  - if (reload)
+    p.reload
+      a(href='/random', target='_self')
+        img(src='http://uniba.jp/ref/images/btn_reload.png')

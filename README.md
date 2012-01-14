@@ -14,7 +14,7 @@ Requirement
 Installation
 ----
 
-Install Node v0.4.7
+Install Node v0.4.7 (using nave)
 
 ```
 $ nave install 0.4.7
@@ -22,20 +22,16 @@ $ nave use 0.4.7
 $ curl http://npmjs.org/install.sh | sh
 ````
 
-Grab code from GitHub
+Grab code and resolving module dependencies.
 
 ```
 $ git clone git@github.com:uniba/utropy.git
-```
-
-Resolve dependency
-
-```
 $ cd utropy
 $ npm install
 ```
 
 Run
+
 ```
 $ node web
 ```
